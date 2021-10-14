@@ -40,7 +40,7 @@ def least_squares_SGD(y, tx, w_init, max_iters, gamma):
     #print(w)
     for i in range(max_iters):
         
-        n = random.randint(N-1)
+        n = random.randint(N)
         
         e = y[n] - tx[n].dot(w) #error 
         loss = (1/2) * np.transpose(e).dot(e)
@@ -58,7 +58,7 @@ def least_squares_SGD(y, tx, w_init, max_iters, gamma):
 tx =  np.array([[1,1,0],[0,2,0],[1,0,3]])
 y = np.array([[1],[2],[3]])
 w_init= np.array(np.random.rand(3,1))
-max_iters=500
+max_iters=100
 gamma=0.1
 
 
