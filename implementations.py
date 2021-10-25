@@ -11,15 +11,17 @@ def least_squares_GD(y, tx, w_init, max_iters, gamma):
     # y:Nx1/ tx:NxD/ w:Dx1
     w = w_init
     N = y.shape[0]
-
+    
     for i in range(max_iters):
-        e = y - tx.dot(w) #error 
-        print(e) 
-        gradient =-(1/N) * tx.T.dot(e)
-        print(gradient)
+        
+        #L=((1/(2*N)*A*A.transpose()
+        
+        e = y - tx.dot(w) #error  
+        loss = (1/(2*N)) * np.transpose(e).dot(e)
+        
+        gradient =-(1/N)*tx.dot(y-tx.dot(w))
         w = w - gamma*gradient
-
-    loss = (1/(2*N)) * np.ndarray.transpose(e).dot(e)
+       
     return w, loss
 
 
@@ -29,21 +31,27 @@ def least_squares_SGD(y, tx, w_init, max_iters, gamma):
     
     w = w_init
     N = y.shape[0]
-    
+    loss=0
+    #print(w)
     for i in range(max_iters):
-
-        n = random.randint(N-1)
         
-        e = y[n] - np.dot(tx[n,:],w) #error 
-        gradient =-tx[n,:]*e
-        w = w - gamma*gradient
-
-    e = y - tx.dot(w)
-    loss = (1/(2*N)) * np.ndarray.transpose(e).dot(e)
-
-    return w,loss
+        n = random.randint(N)
+        
+        e = y[n] - tx[n].dot(w) #error 
+        loss = (1/2) * np.transpose(e).dot(e)
+        
+        gradient =-tx[n]*(y[n]-tx[n].dot(w))
+      
+  
+        #np.ndarray.transpose
+        w = w - (gamma*np.transpose([gradient]))
+       
+    
+    return w, loss   
 
     ## Least squares with normal equations
+    
+    
 
     ## Ridge regression with normal equations
 
