@@ -45,17 +45,18 @@ def least_squares_SGD(y, tx, w_init, max_iters, gamma):
 
     ## Ridge regression with normal equations
 
-    def ridge_regression(y, tx, lambda_):
-        A = np.ndarray.transpose(tx)
-        w = ((np.linalg.inv(tx.dot(A)+lambda_*np.identity(np.size(y)))).dot(tx)).dot(y)
-        e = y - tx.dot(w)
-        loss = (1/(2*N)) * np.ndarray.transpose(e).dot(e)
-        return w , loss
+def ridge_regression(y, tx, lambda_):
+    N = y.shape[0]
+    A = np.ndarray.transpose(tx)
+    w = ((np.linalg.inv(tx.dot(A)+lambda_*np.identity(np.size(y)))).dot(tx)).dot(y)
+    e = y - tx.dot(w)
+    loss = (1/(2*N)) * np.ndarray.transpose(e).dot(e)
+    return w , loss
 
     ## Least squares with normal equations
 
-    def least_squares(y, tx):
-        return ridge_regression(y,tx,0)
+def least_squares(y, tx):
+    return ridge_regression(y,tx,0)
 
 
     ## Regularized Logistic regression with gradient descent 
