@@ -3,6 +3,7 @@ from implementations import *
 import matplotlib.pyplot as plt
 import numpy as np
 
+random.seed(29)
 # PROCESSING DATA
 
 # Loading data
@@ -181,7 +182,7 @@ w31_init = np.zeros(tx31.shape[1])
 #w_init = np.zeros(tx.shape[1])
 
 gamma = 0.01
-max_iters = 20000
+max_iters = 30000
 
 # Model selection via grid search on lambda
 #lambda_list=np.arange(0,1,0.05)
@@ -274,7 +275,7 @@ print(errors00, errors10, errors20, errors30, errors01, errors01, errors11, erro
  #+ errors11[0]*tx11.shape[0] + errors21[0]*tx21.shape[0] + errors31[0]*tx31.shape[0])/(100*tx.shape[0]))
 
 
-
+"""
 for i in range(1,9):
     plt.subplot(4,2,i) # set the current Axes
     plt.plot(lambda_list, errors_list[i-1], marker='o')
@@ -282,7 +283,7 @@ for i in range(1,9):
     plt.ylabel('Errors in %')
 
 plt.show()
-
+"""
 #print(errors)
 
 ##############################################################
