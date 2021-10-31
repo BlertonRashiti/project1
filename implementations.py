@@ -50,7 +50,7 @@ def least_squares_SGD(y, tx, w_init, max_iters, gamma):
         w = ((np.linalg.inv(tx.dot(A)+lambda_*np.identity(np.size(y)))).dot(tx)).dot(y)
         e = y - tx.dot(w)
         loss = (1/(2*N)) * np.ndarray.transpose(e).dot(e)
-    return w , loss
+        return w , loss
 
     ## Least squares with normal equations
 
