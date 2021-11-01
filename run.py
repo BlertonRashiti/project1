@@ -287,7 +287,7 @@ plt.show()
 #print(errors)
 
 ##############################################################
-'''
+
 # Application of the weights obtained via the train set on the test set  
 
 # Loading test set
@@ -388,4 +388,4 @@ y_pred31_2[np.where(y_pred31_2==0)] = -1
 ids2_final = np.concatenate((ids00_2, ids10_2, ids20_2, ids30_2, ids01_2, ids11_2, ids21_2, ids31_2))
 y2_final = np.concatenate((y_pred00_2, y_pred10_2, y_pred20_2, y_pred30_2, y_pred01_2, y_pred11_2, y_pred21_2, y_pred31_2))
 
-create_csv_submission(ids2_final, y2_final, "subdividedlogpredictionsok10000.csv")'''
+create_csv_submission(ids2_final, y2_final, "subdividedlogpredictionsok30000.csv")
